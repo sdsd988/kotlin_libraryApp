@@ -158,10 +158,7 @@ class BookServiceTest @Autowired constructor(
         assertThat(results).hasSize(2)
         assertCount(results,BookType.COMPUTER,2L)
         assertCount(results,BookType.SCIENCE,1L)
-//        val computerDto = results.first{result -> result.type== BookType.COMPUTER}
-//        assertThat(computerDto.count).isEqualTo(2)
-//        val scienceDto = results.first{result -> result.type== BookType.SCIENCE}
-//       assertThat(scienceDto.count).isEqualTo(1)
+
     }
 
     private fun assertCount(results: List<BookStatResponse>, type: BookType, count: Long) {
