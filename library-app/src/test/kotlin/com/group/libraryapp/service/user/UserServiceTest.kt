@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.transaction.annotation.Transactional
 
 @SpringBootTest
 class UserServiceTest @Autowired constructor(
@@ -31,7 +32,7 @@ class UserServiceTest @Autowired constructor(
     @DisplayName("회원 저장 테스트")
     fun saveUserTest() {
         //given
-        val request = UserCreateRequest("최태현", null)
+        val request = UserCreateRequest("정상윤", null)
 
         //when
         userService.saveUser(request)
@@ -39,7 +40,7 @@ class UserServiceTest @Autowired constructor(
         //then
         val results = userRepository.findAll()
         assertThat(results).hasSize(1)
-        assertThat(results[0].name).isEqualTo("최태현")
+        assertThat(results[0].name).isEqualTo("정상윤")
         assertThat(results[0].age).isNull()
 
     }
@@ -140,6 +141,11 @@ class UserServiceTest @Autowired constructor(
             .containsExactlyInAnyOrder(false,false,true)
 
 
+
+    }
+
+    @Test
+    fun getUserLoanHistoriesTest3(){
 
     }
 
